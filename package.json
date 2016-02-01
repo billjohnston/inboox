@@ -1,0 +1,49 @@
+{
+  "name": "Inboox",
+  "version": "1.0.0",
+  "description": "Multi-account Google Inbox desktop app",
+  "main": "./electron/main.js",
+  "author": "Bill Johnston <billjohnston4@gmail.com>",
+  "scripts": {
+    "start": "electron ./electron/main.js",
+    "uglify": "for f in $(ls electron/web/*.js); do node_modules/uglify-js/bin/uglifyjs $f -o $f --screw-ie8; done;",
+    "osx-icon": "node ./node_modules/node-icns/index -i ./icon.png -o ./dist/osx.icns",
+    "win-icon": "node ./node_modules/png2ico/bin/png2ico -i ./icon.png -o ./dist/win.ico",
+    "package": "mkdir -p dist; npm run uglify; npm run win-icon; electron-packager ./electron $(node -e 'console.log(process.env.npm_package_name)') --platform='win32' --arch='x64' --app-version=$(node -e 'console.log(process.env.npm_package_version)') --out='dist/' --overwrite=true --icon='./dist/win.ico'; npm run osx-icon; electron-packager ./electron $(node -e 'console.log(process.env.npm_package_name)') --platform='darwin' --arch='x64' --app-version=$(node -e 'console.log(process.env.npm_package_version)') --out='dist/' --overwrite=true --icon='./dist/osx.icns'; electron-packager ./electron $(node -e 'console.log(process.env.npm_package_name)') --platform='linux' --arch='x64' --app-version=$(node -e 'console.log(process.env.npm_package_version)') --out='dist/' --overwrite=true",
+    "package-win": "mkdir -p dist; npm run uglify; npm run win-icon; electron-packager ./electron $(node -e 'console.log(process.env.npm_package_name)') --platform='win32' --arch='x64' --app-version=$(node -e 'console.log(process.env.npm_package_version)') --out='dist/' --overwrite=true --icon='./dist/win.ico'",
+    "package-osx": "mkdir -p dist; npm run uglify; npm run osx-icon; electron-packager ./electron $(node -e 'console.log(process.env.npm_package_name)') --platform='darwin' --arch='x64' --app-version=$(node -e 'console.log(process.env.npm_package_version)') --out='dist/' --overwrite=true --icon='./dist/osx.icns'",
+    "package-linux": "mkdir -p dist; npm run uglify; electron-packager ./electron $(node -e 'console.log(process.env.npm_package_name)') --platform='linux' --arch='x64' --app-version=$(node -e 'console.log(process.env.npm_package_version)') --out='dist/' --overwrite=true",
+    "build": "webpack --progress --colors",
+    "watch": "webpack --progress --colors --watch"
+  },
+  "devDependencies": {
+    "babel-core": "^6.3.26",
+    "babel-loader": "^6.2.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "electron-packager": "^5.2.1",
+    "exports-loader": "^0.6.2",
+    "imports-loader": "^0.6.5",
+    "node-icns": "0.0.2",
+    "png2ico": "^0.4.1",
+    "uglify-js": "^2.6.1",
+    "webpack": "^1.12.9",
+    "whatwg-fetch": "^0.10.1"
+  },
+  "dependencies": {
+    "electron-prebuilt": "^0.36.6",
+    "immutable": "^3.7.6",
+    "lodash": "^4.0.1",
+    "material-ui": "^0.14.1",
+    "radium": "^0.16.5",
+    "react": "^0.14.5",
+    "react-dom": "^0.14.5",
+    "react-redux": "^4.0.6",
+    "react-style": "^0.5.5",
+    "react-tap-event-plugin": "^0.2.1",
+    "redux": "^3.0.5",
+    "redux-thunk": "^1.0.3"
+  }
+}
