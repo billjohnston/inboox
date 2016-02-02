@@ -15,7 +15,7 @@ let createMainWindow = function(){
 
     mainWindow.loadURL('file://' + __dirname + '/web/index.html')
 
-    mainWindow.webContents.openDevTools()
+    // mainWindow.webContents.openDevTools()
 }
 
 app.on('window-all-closed', function() {
