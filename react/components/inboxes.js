@@ -25,9 +25,8 @@ export default class Inboxes extends Component {
                     webview.addEventListener('ipc-message', function(e){
                         if(e.channel == 'unreadCount'){
                             var uucObj = e.args[0]
-                            console.log(e.args[0])
                             self.props.dispatch(updateUnreadCount(
-                                uucObj.accountIndex,
+                                uucObj.accountId,
                                 uucObj.unreadCount
                             ))
                         }
@@ -51,20 +50,20 @@ export default class Inboxes extends Component {
             <div className='layout-column layout-fill' style={{
                 display: inboxTab ? 'flex' : 'none'
             }}>
-                {this.props.accounts.map((inbox, index) => {
+                {this.props.accounts.map((account) => {
 
-                    var active = inboxTab && inbox.active;
+                    var active = inboxTab && account.active;
 
                     return (
                         <webview
-                            key={index}
+                            key={account.id}
                             className='InboxWebview'
                             style={{
                                 display: active ? 'flex' : 'block',
                                 width: active ? '100%' : 0,
                                 height: active ? '100%' : 0
                             }}
-                            src={`https://inbox.google.com/u/${index}/`}
+                            src={`https://inbox.google.com/u/${account.id}/`}
                             preload='./inboxListeners.js'
                         ></webview>
                     );

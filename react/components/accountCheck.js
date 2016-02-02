@@ -34,10 +34,10 @@ export default class AccountCheck extends React.Component {
                 /(\/\/lh[0-9]\.googleusercontent.com\/.*?\/w48-h48\/photo.jpg)/gi
             )
             if(matches){
-                // console.log(state);
                 var accounts = [];
                 matches.forEach(function(imageUrl, index){
                     accounts.push({
+                        id: index,
                         image: 'https:' + imageUrl.replace('w48-h48', 's72-c-mo'),
                         active: index == (matches.length - 1)
                     })

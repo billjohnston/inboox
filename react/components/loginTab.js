@@ -30,10 +30,6 @@ export default class LoginTab extends React.Component {
             }
         })
 
-        webview.addEventListener('console-message', function(e) {
-            console.log('MESSAGE:', e.message);
-        })
-
     }
 
     render() {

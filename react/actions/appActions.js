@@ -4,7 +4,6 @@ import {
     UPDATE_ACCOUNTS,
     SET_LOGGED_IN,
     SET_ACTIVE_INBOX,
-    UPDATE_UNREAD_COUNT,
     LOG_OUT
 } from '../constants/accountOperations'
 
@@ -37,17 +36,9 @@ export function logOut(){
     }
 }
 
-export function setActiveInbox(accountIndex){
+export function setActiveInbox(accountId){
     return {
         type: SET_ACTIVE_INBOX,
-        accountIndex: accountIndex
-    }
-}
-
-export function updateUnreadCount(accountIndex, unreadCount){
-    return {
-        type: UPDATE_UNREAD_COUNT,
-        accountIndex: accountIndex,
-        unreadCount: unreadCount
+        accountId: accountId
     }
 }

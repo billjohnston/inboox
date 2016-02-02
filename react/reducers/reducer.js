@@ -7,7 +7,6 @@ import {
     SET_APP_LOADING,
     UPDATE_ACCOUNTS,
     SET_ACTIVE_INBOX,
-    UPDATE_UNREAD_COUNT,
     LOG_OUT
 } from '../constants/accountOperations'
 
@@ -37,26 +36,13 @@ export default function appStore(state = initialState, action) {
         case SET_ACTIVE_INBOX:
             var currentAccounts = state.get('accounts');
             var newAccounts = [];
-            currentAccounts.forEach(function(account, index){
+            currentAccounts.forEach(function(account){
                 newAccounts.push({
+                    id: account.id,
                     image: account.image,
-                    active: (index == action.accountIndex),
+                    active: (account.id == action.accountId),
                 })
             });
-            return state.set('accounts', newAccounts);
-        case UPDATE_UNREAD_COUNT:
-            var currentAccounts = state.get('accounts');
-            var newAccounts = [];
-            var totalUnreadCount = 0;
-            currentAccounts.forEach(function(account, index){
-                var unreadCount = (index == action.accountIndex) ? action.unreadCount : account.unreadCount
-                newAccounts.push({
-                    image: account.image,
-                    active: account.active,
-                });
-                totalUnreadCount = totalUnreadCount + unreadCount;
-            });
-            ipcRenderer.send('updateBadge', totalUnreadCount);
             return state.set('accounts', newAccounts);
         case LOG_OUT:
             return state
