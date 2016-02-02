@@ -64,7 +64,7 @@ export default class Inboxes extends Component {
                                 height: active ? '100%' : 0
                             }}
                             src={`https://inbox.google.com/u/${account.id}/`}
-                            preload='./inboxListeners.js'
+                            preload='./js/inboxListeners.js'
                         ></webview>
                     );
                 })}

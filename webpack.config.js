@@ -14,7 +14,7 @@ module.exports = {
         bundle: path.resolve(__dirname, 'react/main.js')
     }),
     output: {
-        path: path.resolve(__dirname, 'electron/web'),
+        path: path.resolve(__dirname, 'electron/web/js'),
         filename: '[name].js',
     },
     module: {

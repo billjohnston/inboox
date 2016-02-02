@@ -61,7 +61,7 @@ export default class AccountCheck extends React.Component {
                 style={styles.accountCheck}
                 id='accountCheck'
                 src={ACTIVE_ACCOUNTS_URL}
-                preload='./accountCheck.js'
+                preload='./js/accountCheck.js'
             ></webview>
         )
     }
