@@ -10,7 +10,8 @@ let mainWindow
 let createMainWindow = function(){
     mainWindow = new BrowserWindow({
         width: 1024,
-        height: 768
+        height: 768,
+        title: 'Inboox'
     })
 
     mainWindow.loadURL('file://' + __dirname + '/web/index.html')
