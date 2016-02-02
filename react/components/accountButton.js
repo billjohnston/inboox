@@ -33,19 +33,21 @@ export default class AccountButton extends React.Component {
     }
 
     render() {
-        var inboxTab = (this.props.activeTab == 'inbox');
-        var active = inboxTab && this.props.account.active;
 
-        styles.accountButton.boxShadow = active ? 'inset 0 0 0 2px white' : 'none'
-        styles.accountButton.backgroundImage = `url(${this.props.account.image})`
-        styles.accountButton.cursor = active ? 'auto' : 'pointer'
+        var active = this.props.activeTab == 'inbox' && this.props.account.active;
+
+        var accountSpecificStyles = {
+            boxShadow: active ? 'inset 0 0 0 2px white' : 'none',
+            backgroundImage: `url(${this.props.account.image})`,
+            cursor: active ? 'auto' : 'pointer'
+        }
 
         if(active){
-            styles.accountButton.opacity = 1
+            accountSpecificStyles.opacity = 1
         }
         else{
-            styles.accountButton.opacity = 0.6
-            styles.accountButton[':hover'] = {
+            accountSpecificStyles.opacity = 0.6
+            accountSpecificStyles[':hover'] = {
                 opacity: 0.8
             }
         }
@@ -59,7 +61,7 @@ export default class AccountButton extends React.Component {
                         this.props.account.id
                     )
                 }
-                style={styles.accountButton}
+                style={[styles.accountButton, accountSpecificStyles]}
             ></div>
         )
 
