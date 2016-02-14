@@ -31,7 +31,7 @@ export default class App extends Component {
             e.preventDefault();
             menu.popup(remote.getCurrentWindow());
         });
-        
+
     }
 
     render(){

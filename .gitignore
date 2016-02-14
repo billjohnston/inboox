@@ -1,3 +1,5 @@
 node_modules
-/dist
-/electron/web/js
+dist
+electron/web/js/*
+electron/web/preload/*
+npm-debug.log

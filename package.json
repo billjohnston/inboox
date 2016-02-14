@@ -2,7 +2,7 @@
   "name": "Inboox",
   "version": "1.0.0",
   "description": "Multi-account Google Inbox desktop app",
-  "main": "./electron/main.js",
+  "main": "./main.js",
   "author": "Bill Johnston <billjohnston4@gmail.com>",
   "scripts": {
     "start": "electron ./electron/main.js",

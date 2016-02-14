@@ -1,34 +1,34 @@
 const path = require('path')
 const webpack = require('webpack')
 var fs = require('fs')
+var packageJson = require('./package.json')
 
 var preload = {}
 fs.readdirSync('./preload/').forEach(function(fileName){
-    preload[fileName.replace('.js', '')] = path.resolve(
-        __dirname, 'preload/' + fileName
-    )
+    preload['electron/web/preload/' + fileName] = './preload/' + fileName
 })
 
 module.exports = {
     entry: Object.assign(preload, {
-        bundle: path.resolve(__dirname, 'react/main.js')
+        'electron/web/js/bundle.js': './react/main.js',
+        'electron/main.js': './electron/main.js'
     }),
     output: {
-        path: path.resolve(__dirname, 'electron/web/js'),
-        filename: '[name].js',
+        path: './',
+        filename: '[name]'
     },
     module: {
         loaders: [
             {
                 test: /\.js$/,
-                exclude: /node_modules/,
+                exclude: [/node_modules/, /electron\/main\.js$/],
                 loader: "babel",
                 query: {
-                    plugins: ['transform-decorators-legacy' ],
+                    plugins: ['transform-decorators-legacy'],
                     presets: ['es2015', 'stage-0', 'react']
                 }
             }
-        ],
+        ]
     },
     plugins: [
         new webpack.ProvidePlugin({

@@ -46,10 +46,10 @@ export default class AccountButton extends React.Component {
             accountSpecificStyles.opacity = 1
         }
         else{
-            accountSpecificStyles.opacity = 0.6
             accountSpecificStyles[':hover'] = {
                 opacity: 0.8
             }
+            accountSpecificStyles.opacity = 0.6
         }
 
         return (
