@@ -19,6 +19,15 @@ var styles = {
 @Radium
 export default class AccountButton extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {hovered: false};
+    }
+
+    setHovered(hovered){
+        this.setState({hovered: hovered})
+    }
+
     setAccount(isActive, index){
         if(this.props.activeTab != 'inbox'){
             this.props.dispatch(
@@ -42,18 +51,10 @@ export default class AccountButton extends React.Component {
             cursor: active ? 'auto' : 'pointer'
         }
 
-        if(active){
-            accountSpecificStyles.opacity = 1
-        }
-        else{
-            accountSpecificStyles[':hover'] = {
-                opacity: 0.8
-            }
-            accountSpecificStyles.opacity = 0.6
-        }
-
         return (
             <div
+                onMouseEnter={this.setHovered.bind(this, true)}
+                onMouseLeave={this.setHovered.bind(this, false)}
                 onTouchTap={
                     this.setAccount.bind(
                         this,
@@ -61,7 +62,13 @@ export default class AccountButton extends React.Component {
                         this.props.account.id
                     )
                 }
-                style={[styles.accountButton, accountSpecificStyles]}
+                style={[
+                    styles.accountButton,
+                    accountSpecificStyles,
+                    {
+                        opacity: active ? 1 : this.state.hovered ? 0.8 : 0.6
+                    }
+                ]}
             ></div>
         )
 

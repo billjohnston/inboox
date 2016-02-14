@@ -10,8 +10,7 @@ fs.readdirSync('./preload/').forEach(function(fileName){
 
 module.exports = {
     entry: Object.assign(preload, {
-        'electron/web/js/bundle.js': './react/main.js',
-        'electron/main.js': './electron/main.js'
+        'electron/web/js/bundle.js': './react/main.js'
     }),
     output: {
         path: './',
