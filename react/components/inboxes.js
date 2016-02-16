@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import shell from 'shell'
 import each from 'lodash/each'
 
 
-import { updateUnreadCount } from '../actions/appActions';
+import { updateUnreadCount } from '../actions/appActions'
 
 @connect(state => ({
     accounts: state.get('accounts'),
@@ -14,14 +14,14 @@ export default class Inboxes extends Component {
 
     componentDidUpdate(){
 
-        var self = this;
-        var webviews = document.getElementsByClassName('InboxWebview');
+        var self = this
+        var webviews = document.getElementsByClassName('InboxWebview')
 
         if(webviews.length){
             each(webviews, function(webview){
                 if(!webview.getAttribute('has-listeners')){
 
-                    webview.setAttribute('has-listeners', true);
+                    webview.setAttribute('has-listeners', true)
                     webview.addEventListener('ipc-message', function(e){
                         if(e.channel == 'unreadCount'){
                             var uucObj = e.args[0]
@@ -30,11 +30,11 @@ export default class Inboxes extends Component {
                                 uucObj.unreadCount
                             ))
                         }
-                    });
+                    })
 
                     webview.addEventListener('new-window', function(e) {
-                        shell.openExternal(e.url);
-                    });
+                        shell.openExternal(e.url)
+                    })
 
                 }
             })
@@ -44,7 +44,7 @@ export default class Inboxes extends Component {
 
     render() {
 
-        var inboxTab = (this.props.activeTab == 'inbox');
+        var inboxTab = (this.props.activeTab == 'inbox')
 
         return (
             <div className='layout-column layout-fill' style={{
@@ -52,7 +52,7 @@ export default class Inboxes extends Component {
             }}>
                 {this.props.accounts.map((account) => {
 
-                    var active = inboxTab && account.active;
+                    var active = inboxTab && account.active
 
                     return (
                         <webview
@@ -66,7 +66,7 @@ export default class Inboxes extends Component {
                             src={`https://inbox.google.com/u/${account.id}/`}
                             preload='./preload/inboxListeners.js'
                         ></webview>
-                    );
+                    )
                 })}
             </div>
         )

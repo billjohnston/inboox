@@ -1,19 +1,19 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
 
-import Sidebar from '../components/sidebar';
-import AppLoading from '../components/appLoading';
-import LoginTab from '../components/loginTab';
-import AccountCheck from '../components/accountCheck';
-import Inboxes from '../components/inboxes';
+import Sidebar from '../components/sidebar'
+import AppLoading from '../components/appLoading'
+import LoginTab from '../components/loginTab'
+import AccountCheck from '../components/accountCheck'
+import Inboxes from '../components/inboxes'
 
-import remote from 'remote';
+import remote from 'remote'
 
 export default class App extends Component {
 
     componentDidMount(){
 
-        var menu = new remote.Menu();
+        var menu = new remote.Menu()
         menu.append(new remote.MenuItem(
             { label: "Cut", accelerator: "CmdOrCtrl+X", selector: "cut:" }
         ))
@@ -28,9 +28,9 @@ export default class App extends Component {
         ))
 
         window.addEventListener('contextmenu', function (e) {
-            e.preventDefault();
-            menu.popup(remote.getCurrentWindow());
-        });
+            e.preventDefault()
+            menu.popup(remote.getCurrentWindow())
+        })
 
     }
 

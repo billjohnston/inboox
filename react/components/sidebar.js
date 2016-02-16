@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 import Radium from 'radium'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import AccountButton from './accountButton'
 import LogoutButton from './logoutButton'
 import AddAccountButton from './addAccountButton'
@@ -23,7 +23,7 @@ export default class Sidebar extends React.Component {
 
     render() {
 
-        var inboxTab = (this.props.activeTab == 'inbox');
+        var inboxTab = (this.props.activeTab == 'inbox')
 
         return (
             <div

@@ -1,13 +1,13 @@
-import React from 'react';
-import { render } from 'react-dom';
+import React from 'react'
+import { render } from 'react-dom'
 import { createStore, applyMiddleware  } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import { Provider } from 'react-redux'
 import rootReducer from './reducers/reducer'
-import App from './containers/app';
-import {StyleRoot} from 'radium';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
+import App from './containers/app'
+import {StyleRoot} from 'radium'
+import injectTapEventPlugin from 'react-tap-event-plugin'
+injectTapEventPlugin()
 
 const createStoreWithMiddleware = applyMiddleware(
     thunkMiddleware
@@ -22,4 +22,4 @@ render(
         </Provider>
     </StyleRoot>,
     document.getElementById('app')
-);
+)

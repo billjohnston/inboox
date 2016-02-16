@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 import Radium from 'radium'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 
-import { changeTab, setActiveInbox} from '../actions/appActions';
+import { changeTab, setActiveInbox} from '../actions/appActions'
 
 var styles = {
     accountButton: {
@@ -20,8 +20,8 @@ var styles = {
 export default class AccountButton extends React.Component {
 
     constructor(props) {
-        super(props);
-        this.state = {hovered: false};
+        super(props)
+        this.state = {hovered: false}
     }
 
     setHovered(hovered){
@@ -32,18 +32,18 @@ export default class AccountButton extends React.Component {
         if(this.props.activeTab != 'inbox'){
             this.props.dispatch(
                 changeTab('inbox')
-            );
+            )
         }
         if(!isActive){
             this.props.dispatch(
                 setActiveInbox(index)
-            );
+            )
         }
     }
 
     render() {
 
-        var active = this.props.activeTab == 'inbox' && this.props.account.active;
+        var active = this.props.activeTab == 'inbox' && this.props.account.active
 
         var accountSpecificStyles = {
             boxShadow: active ? 'inset 0 0 0 2px white' : 'none',

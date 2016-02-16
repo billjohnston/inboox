@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
 import Radium from 'radium'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 
 import {
     updateAccounts,
     changeTab,
     setAppLoading
-} from '../actions/appActions';
+} from '../actions/appActions'
 
 import { ACTIVE_ACCOUNTS_URL } from '../constants/urls'
 
@@ -25,8 +25,8 @@ export default class AccountCheck extends React.Component {
 
     componentDidMount(){
 
-        var self = this;
-        var webview = document.getElementById('accountCheck');
+        var self = this
+        var webview = document.getElementById('accountCheck')
 
         webview.addEventListener('ipc-message', function(e){
 
@@ -34,7 +34,7 @@ export default class AccountCheck extends React.Component {
                 /(\/\/lh[0-9]\.googleusercontent.com\/.*?\/w48-h48\/photo.jpg)/gi
             )
             if(matches){
-                var accounts = [];
+                var accounts = []
                 matches.forEach(function(imageUrl, index){
                     accounts.push({
                         id: index,
@@ -42,15 +42,15 @@ export default class AccountCheck extends React.Component {
                         active: index == (matches.length - 1)
                     })
                 })
-                self.props.dispatch(updateAccounts(accounts));
-                self.props.dispatch(changeTab('inbox'));
+                self.props.dispatch(updateAccounts(accounts))
+                self.props.dispatch(changeTab('inbox'))
             }
             else{
-                self.props.dispatch(changeTab('loginTab'));
+                self.props.dispatch(changeTab('loginTab'))
             }
-            self.props.dispatch(setAppLoading(false));
+            self.props.dispatch(setAppLoading(false))
 
-        });
+        })
 
     }
 

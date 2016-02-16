@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 import Radium from 'radium'
-import { connect } from 'react-redux';
-import FloatingActionButton from 'material-ui/lib/floating-action-button';
-import ContentAdd from 'material-ui/lib/svg-icons/content/add';
-import { changeTab } from '../actions/appActions';
+import { connect } from 'react-redux'
+import FloatingActionButton from 'material-ui/lib/floating-action-button'
+import ContentAdd from 'material-ui/lib/svg-icons/content/add'
+import { changeTab } from '../actions/appActions'
 
 var styles = {
     addAccountButton: {
