@@ -2,4 +2,7 @@ node_modules
 dist
 electron/web/js/*
 electron/web/preload/*
+download/linux/inboox
+download/win/inboox
+download/osx/inboox
 npm-debug.log
