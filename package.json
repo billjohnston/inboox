@@ -13,7 +13,7 @@
     "package-osx": "mkdir -p dist; npm run osx-icon; electron-packager ./electron $(node -e 'console.log(process.env.npm_package_name)') --platform='darwin' --arch='x64' --app-version=$(node -e 'console.log(process.env.npm_package_version)') --out='dist/' --overwrite=true --icon='./dist/osx.icns'",
     "package-linux": "mkdir -p dist; electron-packager ./electron $(node -e 'console.log(process.env.npm_package_name)') --platform='linux' --arch='x64' --app-version=$(node -e 'console.log(process.env.npm_package_version)') --out='dist/' --overwrite=true",
     "uglify": "for f in $(ls electron/web/js/*.js electron/web/preload/*.js); do node_modules/uglify-js/bin/uglifyjs $f -o $f --screw-ie8; done;",
-    "zip": "pushd dist/Inboox-linux-x64; zip -FSr ../../download/linux/inboox.zip . -x '*.DS_Store'; popd; pushd dist/Inboox-win32-x64; zip -FSr ../../download/win/inboox.zip . -x '*.DS_Store'; popd; pushd dist/Inboox-darwin-x64; zip -FSr ../../download/osx/inboox.zip . -x '*.DS_Store'; popd;",
+    "zip": "pushd dist/Inboox-linux-x64; zip -FSr ../../download/inboox-linux.zip . -x '*.DS_Store'; popd; pushd dist/Inboox-win32-x64; zip -FSr ../../download/inboox-win.zip . -x '*.DS_Store'; popd; pushd dist/Inboox-darwin-x64; zip -FSr ../../download/inboox-osx.zip . -x '*.DS_Store'; popd;",
     "osx-icon": "node  ./node_modules/node-icns/index -i ./icon.png -o ./dist/osx.icns",
     "win-icon": "node ./node_modules/png2ico/bin/png2ico -i ./icon.png -o ./dist/win.ico"
   },
