@@ -8,9 +8,9 @@ Multi-account Google Inbox desktop app. Runs on [react](https://facebook.github.
 
 Download
 ===========
-- [Windows](https://mega.nz/#!5cpx1J7I!zgWguDJ58vGOS_g2iG9hzt-7TU_P6Kwf34_e-C5LEKI)
-- [OSX](https://mega.nz/#!1MJBUISC!x4wXHqdM-jI0kJkgGQB7uWwMR8bEC6RbFILbTSnD7GM)
-- [Linux](https://mega.nz/#!4EpFgbRI!zUpNJEyWJTk7yjcH628PqtBbgaTPLgBEIQ5vDED7UFM) (Untested)
+- [Windows]()
+- [OSX]()
+- [Linux]() (Untested)
 
 Contribute
 ===========
