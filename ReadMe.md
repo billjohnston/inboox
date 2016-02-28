@@ -8,9 +8,9 @@ Multi-account Google Inbox desktop app. Runs on [react](https://facebook.github.
 
 Download
 ===========
-- [Windows]()
-- [OSX]()
-- [Linux]() (Untested)
+- [Windows](https://github.com/billjohnston/inboox/blob/master/download/inboox-win.zip?raw=true)
+- [OSX](https://github.com/billjohnston/inboox/blob/master/download/inboox-osx.zip?raw=true)
+- [Linux](https://github.com/billjohnston/inboox/blob/master/download/inboox-linux.zip?raw=true) (Untested)
 
 Contribute
 ===========
